@@ -1,0 +1,124 @@
+<%= partial :public_base, { :title => "MIT Chapter of Sigma Nu" } %>
+<%= partial :public_links %>
+
+<div class="centered">
+  <div>
+    <a href="#" id="floor1-link">First Floor</a> ::
+    <a href="#" id="floor2-link">Second Floor</a> ::
+    <a href="#" id="floor34-link">Third and Fourth Floors</a>
+  </div>
+
+  <div id="floor1">
+    <div class="slides_container">
+      <div>
+        <h1>Pool Table</h1>
+        <img src="/photos/housetour/pool-room-small.jpg"></img>
+        <p>Our first floor landing plays host to our vintage Brunswick pool
+        table. Brothers often gather for a quick game of pool or just sit
+        around on the couches that surround the table.</p>
+      </div>
+      <div>
+        <h1>Library</h1>
+        <img src="/photos/housetour/library.jpg"></img>
+        <p>The bottom floor also hosts our library, a true exhibit of our
+        academic endeavors, hosting hundreds of textbooks and collections
+        of notes. With two Athena computers and a laser printer, it is a quiet
+        place to get some serious work done.</p>
+      </div>
+    </div>
+    <div style="display:block;height:0px;">
+      <a href="#" class="prev"><img src="/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+      <a href="#" class="next"><img src="/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+    </div>
+  </div>
+
+  <div id="floor2" style="display:none">
+    <div class="slides_container">
+      <div>
+        <h1>Chapter Room</h1>
+        <img src="/photos/housetour/chapter-room.jpg"></img>
+        <p>The chapter room's main use is as our dining room.
+        Every school day, Chef John prepares one of his
+        delicious meals for dinner.</p>
+      </div>
+      <div>
+        <h1>Ballroom</h1>
+        <img src="/photos/housetour/ballroom-tv.jpg"></img>
+        <p>The second floor also plays host to the ballroom. Inlaid with gold
+        designs similar to the chapter room,
+        the ballroom is a great place just to kick back and relax when we're not
+        hosting a party.</p>
+      </div>
+      <div>
+        <h1>Spiral Staircase</h1>
+        <img src="/photos/housetour/spiral.jpg"></img>
+        <p>Our house is home to one of two privately-owned spiral staircases in all of Boston.</p>
+      </div>
+    </div>
+    <div style="display:block;height:0px;">
+      <a href="#" class="prev"><img src="/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+      <a href="#" class="next"><img src="/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+    </div>
+  </div>
+
+  <div id="floor34" style="display:none">
+    <div class="slides_container">
+      <div>
+        <h1>Barn</h1>
+        <img src="/photos/housetour/barn.jpg"></img>
+        <p>There are eleven rooms that range in capacity from single to quad.
+        These spacious living areas are comfortable, inviting, and adaptive.
+        Rooms rarely stay in the same configuration from term to term as brothers move about.</p>
+      </div>
+      <div>
+        <h1>Boudoir</h1>
+        <img src="/photos/housetour/boudoir.jpg"></img>
+        <p>There are eleven rooms that range in capacity from single to quad.
+        These spacious living areas are comfortable, inviting, and adaptive.
+        Rooms rarely stay in the same configuration from term to term as brothers move about.</p>
+      </div>
+      <div>
+        <h1>Servants Quarters</h1>
+        <img src="/photos/housetour/servants.jpg"></img>
+        <p>There are eleven rooms that range in capacity from single to quad.
+        These spacious living areas are comfortable, inviting, and adaptive.
+        Rooms rarely stay in the same configuration from term to term as brothers move about.</p>
+      </div>
+    </div>
+    <div style="display:block;height:0px;">
+      <a href="#" class="prev"><img src="/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+      <a href="#" class="next"><img src="/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+      $("#floor1-link").click(function() {
+        $("#floor1").css("display", "block");
+        $("#floor2").css("display", "none");
+        $("#floor34").css("display", "none");
+        return false;
+        });
+      $("#floor2-link").click(function() {
+        $("#floor1").css("display", "none");
+        $("#floor2").css("display", "block");
+        $("#floor34").css("display", "none");
+        return false;
+        });
+      $("#floor34-link").click(function() {
+        $("#floor1").css("display", "none");
+        $("#floor2").css("display", "none");
+        $("#floor34").css("display", "block");
+        return false;
+        });
+
+      // initalize slides
+      $("#floor1").slides();
+      $("#floor2").slides();
+      $("#floor34").slides();
+  });
+</script>
+
+<%= partial :public_footer %>
+

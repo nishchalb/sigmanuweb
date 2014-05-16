@@ -1,0 +1,28 @@
+<div id="links">
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="/">Calendar</a>
+    </li>
+    <li> 
+      <a href="/profile/">Your Profile</a>
+    </li>
+    <li> 
+      <a href="/admin/">Admin</a>
+    </li>
+    <li> 
+      <a href="/brothers/">Brotherhood Directory</a>
+    </li>
+    <li> 
+      <a href="/family-lines/">Family Trees</a>
+    </li>
+    <li> 
+      <a href="/officers/">Officers</a>
+    </li>
+  <% if session[:user] %>
+    <li>
+      <a href="/logout">Logout</a>
+    </li>
+  <% end %>
+  </ul>
+</div>
+

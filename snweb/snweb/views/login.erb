@@ -1,0 +1,17 @@
+<%= partial :internal_base, { :title => "Login" } %>
+
+<div class="header">Sigma Nu Internal</div>
+<div id="login-box">
+  <div class="error"><%= flash[:error] if flash[:error] %></div>
+  <form action="/login" method="POST">
+    <label for="username">Username:</label> <input type="text" name="username" />
+    <label for="password">Password:</label> <input type="password" name="password" />
+    <% if params[:redir] then %>
+      <input type="hidden" name="redir" value="<%= params[:redir] %>" style="display:none" />
+    <% end %>
+    <label>&nbsp;</label> <input type="submit" value="Login" class="button" />
+  </form>
+</div>
+
+<%= partial :internal_footer %>
+

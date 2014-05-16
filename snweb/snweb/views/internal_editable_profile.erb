@@ -1,0 +1,45 @@
+<%= partial :internal_base, { :title => "Edit profile - #{@bro[:name]}" } %>
+<%= partial :internal_links %>
+
+<div class="header">Edit Your Profile - <%= @bro[:name] %></div>
+<form action="" method="POST" enctype="multipart/form-data">
+  <div class="brodetail">
+    <div class="photo">
+      <% unless photo(@bro).nil? %>
+        <img src="<%= photo(@bro) %>" alt="<%= @bro[:name] %>" title="<%= @bro[:name] %>" ></img>
+      <% else %>
+        &nbsp;
+      <% end %>
+      Upload a new photo of yourself:<br />
+      <input type="file" name="photo"></input>
+    </div>
+    <div class="details">
+      <div class="detail">Name:</div>
+      <div class="item"><%= @bro[:name] %></div>
+      <div style="clear:both"></div>
+      <div class="detail">Nickname:</div>
+      <div class="item"><%= @bro[:nickname] %></div>
+      <div style="clear:both"></div>
+      <div class="detail">Phone:</div>
+      <div class="item"><input type="text" name="phone" value="<%= @bro[:phone] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Email:</div>
+      <div class="item"><input type="text" name="email" value="<%= @bro[:email] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Class of:</div>
+      <div class="item"><input type="text" name="class" value="<%= @bro[:class] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Major:</div>
+      <div class="item"><input type="text" name="major" value="<%= @bro[:major] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Password:</div>
+      <div class="item"><a href="/profile/password/">Change your password.</a></div>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+
+  <input style="display:block;margin:auto;width:50%;margin-top:15px;" type="submit" value="Update your profile"></input>
+</form>
+<%= partial :internal_footer %>
+

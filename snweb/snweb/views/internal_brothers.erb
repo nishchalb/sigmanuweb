@@ -1,0 +1,15 @@
+<%= partial :internal_base, { :title => "Brotherhood Directory" } %>
+<%= partial :internal_links %>
+
+<div class="header">Brotherhood Directory</div>
+<% @boom.each do |pledge_class| %>
+  <div class="header"><%= pledge_class[0] %></div>
+  <ul class="grid-list">
+  <% pledge_class[1].each do |bro| %>
+    <li><a href="/brothers/<%= slugify(bro) %>/"><%= bro[:pin] %> - <%= bro[:name] %></a></li>
+  <% end %>
+  </ul>
+  <div style="clear:both"></div>
+<% end %>
+<%= partial :internal_footer %>
+

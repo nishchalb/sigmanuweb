@@ -1,0 +1,11 @@
+source :rubygems
+
+gem "json"
+gem "nokogiri"
+gem "redcarpet"
+gem "sinatra"
+gem "sinatra-flash"
+gem "sequel"
+gem "sqlite3-ruby"
+gem "thin"
+

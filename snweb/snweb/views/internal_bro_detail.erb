@@ -1,0 +1,89 @@
+<%= partial :internal_base, { :title => "Brother Detail - #{@bro[:name]}" } %>
+<%= partial :internal_links %>
+
+<div class="header">Brother Detail</div>
+<div class="brodetail">
+  <div class="photo">
+    <% unless photo(@bro).nil? %>
+      <img src="<%= photo(@bro) %>" alt="<%= @bro[:name] %>" class="img-polaroid" width=350px height=350px title="<%= @bro[:name] %>" ></img>
+    <% else %>
+      &nbsp;
+    <% end %>
+  </div>
+  <div class="details">
+    <div class="detail">Name:</div>
+    <div class="item"><%= @bro[:name] %></div>
+    <div style="clear:both"></div>
+    <div class="detail">Nickname:</div>
+    <div class="item"><%= @bro[:nickname] %></div>
+    <div style="clear:both"></div>
+    <div class="detail">Big:</div>
+    <div class="item"><a href="/brothers/<%= slugify(@bro[:big]) %>/">
+        <%= @bro[:big][:nickname] %></a></div>
+    <div style="clear:both"></div>
+    <% unless @bro[:littles].empty? %>
+      <div class="detail">Littles:</div>
+      <div class="item">
+        |
+        <% @bro[:littles].each do |little| %>
+	  <% unless little.nil? %>
+          <% unless little[:nickname].empty? %>
+            <a href="/brothers/<%= slugify(little) %>/"><%= little[:nickname] %></a> |
+          <% else %>
+            <a href="/brothers/<%= slugify(little) %>/"><%= little[:name] %></a> |
+          <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div style="clear:both"></div>
+    <% end %>
+    <% unless @bro[:phone].nil? || @bro[:phone].empty? %>
+      <div class="detail">Phone:</div>
+      <div class="item"><%= @bro[:phone] %></div>
+      <div style="clear:both"></div>
+    <% else %>
+      <% if session[:user][:pin] == @bro[:pin] %>
+        <div class="detail">Phone:</div>
+        <div class="item"><a href="/profile/">Update your phone number</a></div>
+        <div style="clear:both"></div>
+      <% end %>
+    <% end %>
+    <% unless @bro[:email].nil? || @bro[:email].empty? %>
+      <div class="detail">Email:</div>
+      <div class="item"><%= @bro[:email] %></div>
+      <div style="clear:both"></div>
+    <% else %>
+      <% if session[:user][:pin] == @bro[:pin] %>
+        <div class="detail">Email:</div>
+        <div class="item"><a href="/profile/">Update your email</a></div>
+        <div style="clear:both"></div>
+      <% end %>
+    <% end %>
+    <% unless @bro[:class].nil? || @bro[:class].empty? %>
+      <div class="detail">Class of:</div>
+      <div class="item"><%= @bro[:class] %></div>
+      <div style="clear:both"></div>
+    <% else %>
+      <% if session[:user][:pin] == @bro[:pin] %>
+        <div class="detail">Class of:</div>
+        <div class="item"><a href="/profile/">Update your class year</a></div>
+        <div style="clear:both"></div>
+      <% end %>
+    <% end %>
+    <% unless @bro[:major].nil? || @bro[:major].empty? %>
+      <div class="detail">Major:</div>
+      <div class="item"><%= @bro[:major] %></div>
+      <div style="clear:both"></div>
+    <% else %>
+      <% if session[:user][:pin] == @bro[:pin] %>
+        <div class="detail">Major:</div>
+        <div class="item"><a href="/profile/">Update your major</a></div>
+        <div style="clear:both"></div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div style="clear:both"></div>
+
+<%= partial :internal_footer %>
+

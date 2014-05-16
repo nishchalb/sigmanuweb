@@ -1,0 +1,70 @@
+/* svg styles */
+.node circle {
+  fill: white;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.node circle.hovered {
+  fill: gold;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+
+.node {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.header {
+  font-size: 200%;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+}
+
+/* page styles */
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+#sublinks {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+}
+
+#sublinks a {
+  color: gold;
+}
+
+#subcontent {
+  width: 960px;
+  margin: auto;
+}
+
+#charts div svg {
+  margin: auto;
+}
+
+#charts .line {
+  border: black solid 2px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+

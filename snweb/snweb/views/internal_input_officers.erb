@@ -1,0 +1,15 @@
+<%= partial :internal_base, { :title => "Update officers" } %>
+<%= partial :internal_links %>
+
+<div class="header">Update officers</div>
+<p>Input pin numbers of the new officers.</p>
+<form action="" method="POST">
+  <% @offices.each do |office| %>
+    <div class="detail"><%= office[:title] %></div>
+    <div class="item"><input type="text" style="width:auto;" name="<%= office[:id] %>" length="5"></input></div>
+    <div style="clear:both"></div>
+  <% end %>
+  <input style="display:block;margin:auto;width:50%;margin-top:15px;" type="submit" value="Update officers"></input>
+</form>
+<%= partial :internal_footer %>
+

@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), "..")
+
+require "snweb/sninternal"
+SNweb::SNInternalServer.run! port: 8000
+

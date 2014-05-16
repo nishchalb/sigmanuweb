@@ -1,0 +1,22 @@
+<%= partial :internal_base, { :title => "SNInternal admin" } %>
+<%= partial :internal_links %>
+
+<div class="header">Admin</div>
+<div>Bro / Candidate admin</div>
+<ul>
+  <li><a href="/admin/candidate/add/">Add a candidate</a></li>
+  <li><a href="/admin/brother/modify/">Choose a bro to modify from a list</a></li>
+</ul>
+<div>Officers admin</div>
+<ul>
+  <li><a href="/admin/officers/fall/">Input officers elected in the fall term</a></li>
+  <li><a href="/admin/officers/spring/">Input officers elected in the spring term</a></li>
+</ul>
+<div>Modify the external website</div>
+<ul>
+  <li><a href="/admin/public-section/add/">Add a section on the external website</a></li>
+  <li><a href="/admin/public-section/modify/">Choose a section on the external website to modify from a list</a></li>
+</ul>
+
+<%= partial :internal_footer %>
+

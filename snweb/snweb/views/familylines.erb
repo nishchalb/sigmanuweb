@@ -1,0 +1,131 @@
+<%= partial :internal_base, { :title => "Family Trees" } %>
+<%= partial :internal_links %>
+<div id="subcontent">
+  <div id="sublinks"></div>
+  <div id="charts"></div>
+</div>
+<script type="text/javascript">
+  var w = 960, h = 500;
+
+var tree = d3.layout.tree()
+  .size([h, w - 160]);
+
+var diagonal = d3.svg.diagonal()
+  .projection(function(d) { return [d.y, d.x]; });
+
+  d3.json("/family-lines.json", function(json) {
+      for (var i=0; i < json.length; i++) {
+      // create div for each line's svg
+      var div = document.createElement("div");
+      div.id = slugify((json[i].line ? json[i].line : json[i].tree.nickname + " line")) + "-chart";
+      div.style.display = "none";
+      div.innerHTML = '<div class="header">' + (json[i].line ? json[i].line : json[i].tree.nickname + " line") + "</div>";
+      document.getElementById("charts").appendChild(div);
+
+      // tree magic
+      var vis = d3.select("#" + div.id)
+      .attr("class", "line")
+      .append("svg:svg")
+      .attr("width", w)
+      .attr("height", h)
+      .append("svg:g")
+      .attr("transform", "translate(80, 0)");
+
+      var nodes = tree.nodes(json[i].tree);
+
+      var link = vis.selectAll("path.link")
+        .data(tree.links(nodes))
+        .enter().append("svg:path")
+        .attr("class", "link")
+        .attr("d", diagonal);
+
+      var node = vis.selectAll("g.node")
+        .data(nodes)
+        .enter().append("svg:g")
+        .attr("class", "node")
+        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+        node.append("svg:circle")
+        .attr("r", 4.5);
+
+      // pins
+      node.append("svg:text")
+        .attr("transform", function(d) { return "translate(" + (d.children ? -8 : 8) + ",3)"; })
+        .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
+        .text(function(d) { return d.pin; });
+
+      // nicknames
+      node.append("svg:text")
+        .attr("transform", function(d) { return "translate(" + (d.children ? -8 : 8) + ",20)"; })
+        .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
+        .attr("visibility", "hidden")
+        .attr("class", "info")
+        .text(function(d) { return d.nickname; });
+
+      // sweet hover effects
+      node.on("mouseover", function() {
+          d3.select(this).select(".info").attr("visibility", "visible");
+          d3.select(this).select("circle").attr("class", "hovered");
+          }).on("mouseout", function() {
+            d3.select(this).select(".info").attr("visibility", "hidden");
+            d3.select(this).select("circle").attr("class", "");
+            }).on("click", function(d) {
+              window.location = "/brothers/" + d.slug + "/";
+              });
+      }
+      createLinks();
+  });
+
+function slugify(str) {
+  return str.toLowerCase().replace(" ", "-");
+}
+
+// this function creates the nav links
+function createLinks() {
+  // separators
+  $("#sublinks").append("<span>:: </span>");
+  // grab the text of the link from the headers above each tree
+  $("#charts div.header").each(function() {
+      var this_chart = $(this).parent().attr("id");
+      var slug = slugify($(this).html());
+      $("#sublinks").append(
+        $("<a></a>").html($(this).html()).click(function() {
+          // do local history manipulation on link click if we can
+          if (history.pushState) {
+          d3.selectAll("#charts > div").style("display", "none");
+          document.getElementById(this_chart).style.display = "block";
+          history.pushState({ chart: "#" + slug + "-chart" }, "", slug);
+          return false;
+          }
+          // otherwise, make a request to the server for the new page
+          }).attr("href", slug).attr("id", slug));
+      $("#sublinks").append("<span> :: </span>");
+      });
+
+  // show a line
+  var line = location.pathname.substring(1).split("/")[1];
+  // if we are deep linked
+  if (line && line.length > 0) {
+    d3.select("#" + line + "-chart").style("display", "block");
+    // do history stuff if we can
+    if (history.pushState) {
+      history.replaceState({ chart: "#" + line + "-chart" }, "", line);
+    }
+  }
+  // else, show the first line (Crowe whaddup?!)
+  else {
+    d3.select("#charts > div").style("display", "block");
+    if (history.pushState) {
+      var link = $("#sublinks a").first().attr("id") + "-chart";
+      history.replaceState({ chart: "#" + link }, "", "");
+    }
+  }
+
+  // swagger on a history
+  window.addEventListener("popstate", function(evt) {
+      d3.selectAll("#charts > div").style("display", "none");
+      $(evt.state.chart).css("display", "block");
+      });
+}
+</script>
+<%= partial :internal_footer %>

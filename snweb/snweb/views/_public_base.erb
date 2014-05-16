@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/css/public.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <title><%= title %></title>
+    <% if @scripts %>
+      <% for @script in @scripts %>
+        <script type="text/javascript" src="<%= @script %>"></script>
+      <% end %>
+    <% end %>
+    <% if @styles %>
+      <% for @style in @styles %>
+        <link type="text/css" rel="stylesheet" href="<%= @style %>"></link>
+      <% end %>
+    <% end %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="content">
+        <div class="header">
+	  <img src="<%= public_photo("badge") %>">
+        </div>
+

@@ -1,0 +1,22 @@
+<%= partial :public_base, { :title => "Brotherhood Directory" } %>
+<%= partial :public_links %>
+
+<div class="header">Brotherhood Directory</div>
+<% @boom.each do |year| %>
+  <div class="header" style="font-size:1.2em">Class of <%= year[0] %></div>
+  <ul class="grid-list">
+  <% year[1].each do |bro| %>
+    
+    <li><a href="/brothers/<%= slugify(bro) %>/">
+      <% unless photo(bro).nil? %>
+        <img src="<%= photo(bro) %>" alt="<%= bro[:name] %>" class="img-polaroid" width=100px height=100px title="<%= bro[:name] %>" ></img>
+      <% else %>
+        &nbsp;
+      <% end %>
+    </a><<%= bro[:name] %>/li>
+  <% end %>
+  </ul>
+  <div style="clear:both"></div>
+<% end %>
+<%= partial :internal_footer %>
+

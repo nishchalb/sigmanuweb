@@ -1,0 +1,13 @@
+<%= partial :internal_base, { :title => "Officer Directory" } %>
+<%= partial :internal_links %>
+
+<div class="header">Officer Directory</div>
+<div style="margin:0px auto; width:50%">
+  <% @officers.each do |officer| %>
+    <div class="detail"><%= officer[:title] %></div>
+    <div class="item"><a href="/brothers/<%= slugify(officer) %>/"><%= officer[:name] %></a></div>
+    <div style="clear:both"></div>
+  <% end %>
+</div>
+<%= partial :internal_footer %>
+

@@ -1,0 +1,73 @@
+<%= partial :internal_base, { :title => "Modify bro - #{@bro[:name]}" } %>
+<%= partial :internal_links %>
+
+<div class="header">Modify bro - <%= @bro[:name] %></div>
+<form action="" method="POST" enctype="multipart/form-data">
+  <div class="brodetail">
+    <div class="photo">
+      <% unless photo(@bro).nil? %>
+        <img src="<%= photo(@bro) %>" alt="<%= @bro[:name] %>" title="<%= @bro[:name] %>" ></img>
+      <% else %>
+        &nbsp;
+      <% end %>
+      Upload a new photo of yourself:<br />
+      <input type="file" name="photo"></input>
+    </div>
+    <div class="details">
+      <div class="detail">Name:</div>
+      <div class="item"><input type="text" name="name" value="<%= @bro[:name] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Nickname:</div>
+      <div class="item"><input type="text" name="nickname" value="<%= @bro[:nickname] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Pin:</div>
+      <div class="item"><input type="text" name="pin" value="<%= @bro[:pin] %>"></input></div>
+      <input type="hidden" name="oldpin" value="<%= @bro[:pin] %>"></input>
+      <div style="clear:both"></div>
+      <div class="detail">Phone:</div>
+      <div class="item"><input type="text" name="phone" value="<%= @bro[:phone] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Email:</div>
+      <div class="item"><input type="text" name="email" value="<%= @bro[:email] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Class of:</div>
+      <div class="item"><input type="text" name="class" value="<%= @bro[:class] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Major:</div>
+      <div class="item"><input type="text" name="major" value="<%= @bro[:major] %>"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Active:</div>
+      <% if @bro[:active] %>
+        <div class="item">
+          <input type="radio" name="active" value="false">No</input>
+          <input type="radio" name="active" value="true"  checked="checked">Yes</input>
+        </div>
+      <% else %>
+        <div class="item">
+          <input type="radio" name="active" value="false" checked="checked">No</input>
+          <input type="radio" name="active" value="true">Yes</input>
+        </div>
+      <% end %>
+
+      <div style="clear:both"></div>
+      <div class="detail">Expelled:</div>
+      <% if @bro[:expelled] %>
+        <div class="item">
+          <input type="radio" name="expelled" value="false">No</input>
+          <input type="radio" name="expelled" value="true"  checked="checked">Yes</input>
+        </div>
+      <% else %>
+        <div class="item">
+          <input type="radio" name="expelled" value="false" checked="checked">No</input>
+          <input type="radio" name="expelled" value="true">Yes</input>
+        </div>
+      <% end %>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+
+  <input style="display:block;margin:auto;width:50%;margin-top:15px;" type="submit" value="Modify bro"></input>
+</form>
+<%= partial :internal_footer %>
+

@@ -1,0 +1,154 @@
+<%= partial :public_base, { :title => "MIT Chapter of Sigma Nu" } %>
+<%= partial :public_links %>
+
+<div class="subcontainer">
+  <div id="sectionphoto" style="padding: 20px">
+    <% if public_photo(@section[:title]) %>
+      <img src="<%= public_photo(@section[:title]) %>"></img>
+    <% else %>
+      <% if @section[:title] == "rush" %>
+      	<div style="width:350px;height:350px"><iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=28%2BFenway%2BStreet%2BBoston%2C%2BMA%2B02215&ie=UTF8&z=16&t=m&iwloc=near&output=embed"></iframe><br><table width="350" cellpadding="0" cellspacing="0" border="0"><tr><td align="left"><small><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=28%2BFenway%2BStreet%2BBoston%2C%2BMA%2B02215&ie=UTF8&z=16&t=m&iwloc=near">View Larger Map</a></small></td><td align="right"><small><a href="http://www.embedgooglemap.com">embed google map</a></small></td></tr></table></div> 
+      <% else %>      
+        &nbsp;
+      <% end %>
+    <% end %>
+  </div>
+  <div id="section">
+    <%if @section[:title] != "rush" %>
+    	<%= @section[:text] %>
+    <%else %>
+	<div id="rush_table">
+	  <h2>Rush Events 2014</h2>
+	  <div class="rush_contact">
+	    Please do not hesitate to contact us at 
+	    <h4> Call: <a href = 'mailto:acadams@mit.edu'>Anthony Adams</a> (618) 972-2488 or <a href='mailto:rjmadera@mit.edu'>Raul Madera</a> (845) 269-7986 </h4>
+            <h4> Email: <a href='mailto:sn-commander@mit.edu'>SigmaNuBrothers</a> 
+	    </h4>
+	    Or just come by our house at 28 Fenway street, Boston, MA 02215. Look forward to seeing you all here.
+	  </div>
+          <div class="rush_details">
+            <h3 style="text-align: center">
+<!--	     Saturday, 8/31/2013 -->
+	    </h3>
+            <h4 class="rush_event_title">
+	     <!-- 1pm-5pm: IPad 2 Pool Tournament -->
+            </h4>
+            <div class="rush_event_desc">
+	   <!--   We will have a pool tournament with the grand prize of IPad 2. Come by to play some games and enjoy delicious snacks, and get to know Sigma Nu. --> 
+	    </div>
+            <h4 class="rush_event_title">
+	     <!-- 5pm-7pm: Steak Dinner-->
+            </h4>
+            <div class="rush_event_desc">
+	    <!-- Hungry after a day of adventure? Come by Sigma Nu to enjoy a savory steak dinner. Ask any of the brothers to show you the house around-->
+	    </div>
+            <h4 class="rush_event_title">
+	     <!-- 7pm-9pm: Ballroom Hockey-->
+            </h4>
+            <div class="rush_event_desc">
+	   <!-- We have one of the biggest common rooms in the New Englad Area. Please come by to play some indoor hockey while enjoying the company of the brothers-->
+	    </div>
+            <h4 class="rush_event_title">
+	     <!-- 9pm-11pm: Bos Ton of Ice Cream-->
+            </h4>
+            <div class="rush_event_desc">
+	   <!-- Ice Cream Yummy!!! Come with your friends to enjoy some late night snacks.-->
+	    </div>
+            <h3 style="text-align: center">
+	    <!-- Sunday, 9/1/2013-->
+	    </h3>
+            <h4 class="rush_event_title">
+	     <!-- 10am-3pm: Paintballing-->
+            </h4>
+            <div class="rush_event_desc">
+	     <!-- Do you think what it takes to be a sniper? Come prove it as we enjoy friendly fun of paintballing!-->
+	    </div>
+            <h4 class="rush_event_title">
+	     <!-- 3:30pm-6:30pm: Sky-Zone-->
+            </h4>
+            <div class="rush_event_desc">
+	     <!-- Jump, Forest, Jump! If you are not afraid of jumping, come enjoy this indoor trampoline with us as we play attempt to dodge balls midair.-->  
+	    </div>
+            <h4 class="rush_event_title">
+	    <!--  7pm-10pm: Comedy Club-->
+            </h4>
+            <div class="rush_event_desc">
+	     <!-- Want to laugh? Then, come hear the comedians at Comedy Studio crack you up!-->
+            </div>
+            <h3 style="text-align: center">
+	    <!-- Monday, 9/2/2013-->
+	    </h3>
+            <h4 class="rush_event_title">
+	     <!-- 12am-4pm: Go-Karting-->
+            </h4>
+            <div class="rush_event_desc">
+	     <!-- What is not to like about racing with your friends in a mini-car? Bring your driving skills on!-->
+	    </div>
+            <h4 class="rush_event_title">
+	     <!-- 4pm-7pm: Poker Tournament-->
+            </h4>
+            <div class="rush_event_desc">
+	     <!-- Have you got the Poker Face? Come prove it in a game of poker with the grand prize of beatz headphone.-->
+            </div>
+            <h4 class="rush_event_title">
+	     <!-- 7pm-8pm: Nugget Feast-->
+            </h4>
+            <div class="rush_event_desc">
+             <!-- Dig though a tower of chicken nuggets for a feast you will never forget!-->
+            </div>
+            <h3 style="text-align: center">
+	    <!-- Tuesday, 9/3/2013-->
+	    </h3>
+            <h4 class="rush_event_title">
+	      <!--12am-2pm: Nerf-wars-->
+            </h4>
+            <div class="rush_event_desc">
+	      <!--Do you think you can survive in a battlefield full of machine guns pouring bullets at you as you attempt to capture the flag? Come by our house for a war of nerf guns with your friends! Fun is guarenteed.-->
+            </div>
+            <h4 class="rush_event_title">
+	      <!--2pm-5pm: Mystery BBQ-->
+            </h4>
+            <div class="rush_event_desc">
+              <!--Ever tried Elk, Deer, or Python (yes the snake) meat? If not, come try it out! It might be savory!-->
+            </div>
+            <h4 class="rush_event_title">
+	      <!--5pm-7pm: Bowling Night with the Bro-s-->
+            </h4>
+            <!--div class="rush_event_desc">
+              Wanna bowl like a pro? Then come bowl it up!
+            </div>
+            <h4 class="rush_event_title">
+	      7pm-9pm:  Prudential Skywalk
+            </h4>
+            <div class="rush_event_desc">
+              The city of Boston is famous for it skyline. Come explore the city from the best vantage point as well as explore Boston's deep history!
+            </div>
+            <h3 style="text-align: center">
+	     Wednesday, 9/3/2013
+	    </h3>
+            <h4 class="rush_event_title">
+	      5pm-6pm: Dinner by John
+            </h4>
+            <div class="rush_event_desc">
+              Hungry after 1st day of classes? Come chat with the brothers about classes, extra-curriculars, and other stuff. See how a regular school day is like at Sigma Nu!
+            </div>
+            <h4 class="rush_event_title">
+	      7pm-9pm: Red-Sox Game (Invite-only)
+            </h4>
+            <div class="rush_event_desc">
+              No matter which team support, it will be a game worth watching as 
+Red Sox takes on the Tigers!
+            </div>
+            <h4 class="rush_event_title">
+	      7pm-9pm: Mike's Pastries and Smoothies
+            </h4>
+	    <div class="rush_event_desc">
+	      Come by the house to enjoy the famous pastries from Mike's, the most famous pastry in the North End! And smoothies from Boston Burger Company, which was voted the best smoothies in Boston 2012.
+            </div-->
+        </div>
+     <% end %>
+  </div>
+  <div style="clear:both"></div>
+</div>
+
+<%= partial :public_footer %>

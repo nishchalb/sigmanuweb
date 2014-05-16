@@ -1,0 +1,25 @@
+<%= partial :internal_base, { :title => "Modify section" } %>
+<%= partial :internal_links %>
+
+<div class="header">Modify section</div>
+<form action="" method="POST" enctype="multipart/form-data">
+  <div class="detail">Title:</div>
+  <div class="item">
+    <input type="text" name="title" length="20" value="<%= @section[:title] %>"></input>
+  </div>
+  <div style="clear:both"></div>
+  <div class="detail">Text:</div>
+  <div class="item">
+    <textarea name="text"><%= @section[:text] %></textarea>
+    <p>Format text using <a href="http://daringfireball.net/projects/markdown/syntax">markdown syntax</a>.</p>
+  </div>
+  <div style="clear:both"></div>
+  <div class="detail">Section photo:</div>
+  <div class="item">
+    <input type="file" name="photo"></input>
+  </div>
+
+  <input style="display:block;margin:auto;width:50%;margin-top:15px;" type="submit" value="Modify section"></input>
+</form>
+<%= partial :internal_footer %>
+

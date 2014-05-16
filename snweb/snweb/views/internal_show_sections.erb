@@ -1,0 +1,11 @@
+<%= partial :internal_base, { :title => "Section list" } %>
+<%= partial :internal_links %>
+
+<div class="header">Choose a section to modify</div>
+<ul>
+  <% @sections.each do |section| %>
+    <li><a href="/admin/public-section/modify/<%= section[:title] %>/"><%= section[:title] %> - <%= section[:text][0, 50] %> ...</a></li>
+  <% end %>
+</ul>
+<%= partial :internal_footer %>
+

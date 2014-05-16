@@ -1,0 +1,36 @@
+<%= partial :public_base, { :title => "Brother Detail - #{@bro[:name]}" } %>
+<%= partial :public_links %>
+
+<div class="brodetail">
+  <div class="photo">
+    <% unless photo(@bro).nil? %>
+      <img src="<%= photo(@bro) %>" alt="<%= @bro[:name] %>" class="img-polaroid" width=350px height=350px title="<%= @bro[:name] %>" ></img>
+    <% else %>
+      &nbsp;
+    <% end %>
+  </div>
+  <div class="details">
+    <div class="detail">Name:</div>
+    <div class="item"><%= @bro[:name] %></div>
+    <div style="clear:both"></div>
+    <% unless @bro[:class].nil? || @bro[:class].empty? %>
+      <div class="detail">Class of:</div>
+      <div class="item"><%= @bro[:class] %></div>
+      <div style="clear:both"></div>
+    <% end %>
+    <% unless @bro[:major].nil? || @bro[:major].empty? %>
+      <div class="detail">Major:</div>
+      <div class="item"><%= @bro[:major] %></div>
+      <div style="clear:both"></div>
+    <% end %>
+    <% unless @bro[:desc].nil? || @bro[:desc].empty? %>
+      <div class="detail">Description:</div>
+      <div class="item"><%= @bro[:desc] %></div>
+      <div style="clear:both"></div>
+    <% end %>
+  </div>
+</div>
+<div style="clear:both"></div>
+
+<%= partial :public_footer %>
+

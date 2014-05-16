@@ -1,0 +1,54 @@
+<%= partial :internal_base, { :title => "Add candidate" } %>
+<%= partial :internal_links %>
+
+<div class="header">Add candidate</div>
+<form action="" method="POST" enctype="multipart/form-data">
+  <div class="brodetail">
+    <div class="photo">
+      &nbsp;
+      Upload a new photo of yourself:<br />
+      <input type="file" name="photo"></input>
+    </div>
+    <div class="details">
+      <div class="detail">Name:</div>
+      <div class="item"><input type="text" name="name"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Nickname:</div>
+      <div class="item"><input type="text" name="nickname"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Pledge class:</div>
+      <div class="item">
+        <select name="pledge_class_id">
+          <% for pc in @pledge_classes %>
+            <option value="<%= pc[:id] %>"><%= pc[:name] %></option>
+          <% end %>
+        </select>
+        <br />Need to <a href="/admin/pledgeclass/new/">make a new pledgeclass</a>?
+      </div>
+      <div style="clear:both"></div>
+      <div class="detail">Big's pin:</div>
+      <div class="item"><input type="number" name="big"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Phone:</div>
+      <div class="item"><input type="text" name="phone"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Email:</div>
+      <div class="item"><input type="text" name="email"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Class of:</div>
+      <div class="item"><input type="text" name="class"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Major:</div>
+      <div class="item"><input type="text" name="major"></input></div>
+      <div style="clear:both"></div>
+      <div class="detail">Description:</div>
+      <div class="item"><input type="text" name="desc"></input></div>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+
+  <input style="display:block;margin:auto;width:50%;margin-top:15px;" type="submit" value="Add candidate"></input>
+</form>
+<%= partial :internal_footer %>
+
