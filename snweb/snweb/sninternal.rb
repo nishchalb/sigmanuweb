@@ -277,15 +277,17 @@ module SNweb
       require_god!
       pledge_classes = []
       active_bros = []
-      DB[:brothers].order(:pin).each do |bro| unless bro.nil?
+       
+      
+      db[:brothers].order(:pin).each do |bro| unless bro.nil?
         pledge_classes << bro[:pledge_class_id]
       end
-      pledge_classes.uniq!
-      @boom = []
+      #pledge_classes.uniq!
+      @pledgeclasses = []
       pledge_classes.each do |pc|
-      	@boom << pledge_classes	
+      	@pledgeclasses << pledge_classes	
       end
-      @boom.reverse!
+      #@boom.reverse!
       erb :internal_admin_show_brothers
     end
 
