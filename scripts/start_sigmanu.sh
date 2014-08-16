@@ -6,7 +6,7 @@ if [ "$(ps ax | grep "bin/sigmanu" | grep -v grep)" ]; then
   echo "sigmanu is running"
 else
   echo "Starting sigmanu"
-  cd $HOME/snweb
+  cd $HOME/sigmanuweb/snweb
   bundle exec bin/sigmanu &> /dev/null &
 fi
 

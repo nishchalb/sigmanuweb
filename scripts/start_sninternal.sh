@@ -6,7 +6,7 @@ if [ "$(ps ax | grep "bin/sninternal" | grep -v grep)" ]; then
   echo "sninternal is running"
 else
   echo "Starting sninternal"
-  cd $HOME/snweb
+  cd $HOME/sigmanuweb/snweb
   bundle exec bin/sninternal &> /dev/null &
 fi
 
