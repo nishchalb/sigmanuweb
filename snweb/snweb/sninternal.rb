@@ -2,8 +2,8 @@ require "json"
 require "sinatra/base"
 require "sinatra/flash"
 
-require "snweb/datastore"
-require "snweb/auth"
+require_relative "datastore"
+require_relative "auth"
 
 module SNweb
   class SNInternalServer < Sinatra::Base
@@ -13,7 +13,7 @@ module SNweb
     DEFAULT_PASS = "honor1870"
 
     helpers do
-      require "snweb/helpers"
+      require_relative "helpers"
     end
 
     before do
@@ -414,6 +414,7 @@ module SNweb
     error 400..510 do
       'Boom! Something bad happened. You should go back or sometihng.'
     end
+  end
   end
 end
 

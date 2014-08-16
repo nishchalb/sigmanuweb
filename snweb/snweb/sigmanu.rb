@@ -2,13 +2,13 @@ require "json"
 require "redcarpet"
 require "sinatra/base"
 
-require "snweb/datastore"
+require_relative "datastore"
 
 module SNweb
   class SigmaNuServer < Sinatra::Base
 
     helpers do
-      require "snweb/helpers"
+      require_relative "helpers"
 
       def render_markdown(text)
         markdown_options = { :fenced_code_blocks => true, :tables => true, :space_after_headers => true }
