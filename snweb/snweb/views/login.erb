@@ -3,6 +3,7 @@
 <div class="header">Sigma Nu Internal</div>
 <div id="login-box">
   <div class="error"><%= flash[:error] if flash[:error] %></div>
+  <div><h5> Please use your mit email as username </h5></div>
   <form action="/login" method="POST">
     <label for="username">Username:</label> <input type="text" name="username" />
     <label for="password">Password:</label> <input type="password" name="password" />
